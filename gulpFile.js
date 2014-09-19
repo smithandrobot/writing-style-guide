@@ -49,7 +49,8 @@ gulp.task('css', function() {
 
 gulp.task('sass', function() {
   return gulp.src(paths.sass)
-        .pipe(sass({ style: 'nested' }))
+        .pipe(gulpIf(env==='development', sass({ style: 'nested' })))
+        .pipe(gulpIf(env==='build', sass({ style: 'nested', bundleExec: true })))
         .pipe(gulp.dest('./static/css'))
         .pipe(gulpIf(env === 'development',livereload(reload)))
 })
