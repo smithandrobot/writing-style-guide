@@ -1,0 +1,13 @@
+function caller(str, cb) {
+	cb('Hello World'+str);
+}
+
+function ex() {
+	console.log('exe called');
+	str += ' -- edited';
+	return caller(str, function(str) {
+		return str;
+	})
+}
+console.log('before exe called');
+ex();

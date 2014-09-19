@@ -1,0 +1,35 @@
+{
+  "name": "prisimc-tests",
+  "version": "0.1.0",
+  "description": "Writing Style Guide",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "prismic.io": "~1.0.12",
+    "handlebars": "~2.0.0-alpha.4",
+    "gulp": "~3.8.7",
+    "through2": "~0.6.1",
+    "gulp-util": "~3.0.0",
+    "gulp-prettify": "~0.3.0",
+    "vinyl": "~0.4.3",
+    "mocha": "~1.21.4",
+    "gulp-mocha": "~1.1.0",
+    "vinyl-fs": "~0.3.7",
+    "gulp-rimraf": "~0.1.0",
+    "tiny-lr": "~0.1.4",
+    "gulp-ruby-sass": "~0.7.1",
+    "gulp-livereload": "~2.1.1",
+    "gulp-if": "~1.2.4",
+    "gulp-replace": "~0.4.0",
+    "jsdom": "~1.0.0-pre.6",
+    "jquery": "~2.1.1",
+    "deasync": "0.0.7"
+  },
+  "dependencies": {
+    "express": "~4.9.0"
+  }
+}

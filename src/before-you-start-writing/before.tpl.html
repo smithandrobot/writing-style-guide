@@ -1,0 +1,16 @@
+<script type="text/grilled" data-binding="document">
+{
+	"layout": "main",
+	"queries": [
+				{"bind": "document", "form": "before-you-start-writing"}
+			   ]
+}
+</script>
+<div class="grid-wrapper">
+	<div class="grid--center">
+		<div class="grid__cell unit-2-3 unit-3-3--lap prismic-content">
+			<h2> {{ prismicContext prismicDocument "getText" "article.title" }}</h2>
+			{{{ getHTML prismicDocument "article.content" }}}
+		</div>
+	</div>
+</div>

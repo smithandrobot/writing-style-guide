@@ -1,0 +1,88 @@
+.hero-banner--writing-guide {
+	background: #e95899 no-repeat url("/img/writing-guide-leaf-header.jpg") center center;
+	background-size: cover;
+	background-position: bottom;
+	
+	.grid__cell { margin-bottom: 0; }
+	.hero-banner__title {
+		margin: 0 0 50px;
+	}
+	.hero-banner__tw-logo {
+		width: 100%;
+		margin: 100px 0 50px 0;
+		text-align: center;
+		img {
+			max-width: 200px;
+		}
+	}
+	.hero-banner__nav {
+		overflow: hidden;
+		padding-bottom: 15px;
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			color: #FFF;
+			font-style: italic;
+			display: block;
+			width: 100%;
+			min-height:80px;
+		}
+
+		.hero-banner__nav__ul {
+			background-color: gray;
+			margin-left: 0;
+			padding: 0;
+			li {
+				padding: 0;
+				float: left;
+				border-top: 1px solid #FFF;
+				list-style-type: none;
+				width: 11%;
+				margin-right: 1.2%
+		
+			}
+		}
+
+		.hero-banner__nav__panel {
+			background-color: #333333;
+			padding: 8px 20px 20px;
+			position: absolute;
+			left: -20px;
+			opacity: 0;
+			display: none;
+			transition: opacity .2s; 
+			li {
+				border: none;
+				float: none;
+				width: 100%;
+				margin: 0;
+				border-bottom: 1px solid #767676;
+			}
+			li:last-of-type {
+				border: none;
+			}
+			a { 
+				font-style: normal;
+				min-height: 0;
+				font-size: .87em
+			}
+
+			a:last-of-type {
+  				border: none;
+  			}
+		}
+		
+		.hero-banner__nav__panel--visible {
+			opacity: 1;
+			display: block;
+		}
+
+	}
+
+	.hero-banner__nav--last {
+		margin-right: 0;
+	}
+}

@@ -1,0 +1,25 @@
+module.exports = 
+  [
+    'Before You Start Writing',
+    'Audience',
+    'Narrative Perspective',
+    'Verb Tense',
+    'Tone of Voice',
+    'Style',
+    'Simplicity and Clutter',
+    'Prepositions draped onto verbs',
+    'Adjectives and Adverbs that don\'t add anything',
+    'Passive verbs that can be made active',
+    'Phrases can be replaced with short words',
+    'Big words when small ones will do',
+    'Long paragraphs and sentences when short ones will do',
+    'Never Stop Rewriting',
+    'Writing for Different Types of Content',
+    'Marketing Emails',
+    'Landing Pages',
+    'Client Stories',
+    'Website copy',
+    'Insights posts',
+    'Common Personas',
+    'Tools and Recommended Reading'
+  ]
