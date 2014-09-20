@@ -29,11 +29,13 @@ env = process.env.NODE_ENV || 'development';
 console.log('Running in env: '+env);
 
 gulp.task('default', ['imgs','sass'], function() {
+  var scriptsRe = /<\!--.*?Scripts([^*]+)End Scripts.*?>/g;
   return gulp.src([paths.html, '!./src/_layouts/**', '!./src/_partials/**'], {read:true})
   .pipe(docObj.get())
   .pipe(prismicQuery.getPrismicData())
   .pipe(renderer.render())
   .pipe(gulpIf(env==='development',replace(/<\/body\>/, lrScript)))
+  .pipe(replace(scriptsRe, '<script src="/js/all.js"></script>'))
   .pipe(prettify({indent_size: 2, indent_inner_html: true}))
   .pipe(gulp.dest('./static/'))
   .pipe(gulpIf(env==='development',livereload(reload)))
@@ -92,6 +94,7 @@ gulp.task('clean', function() {
 		.pipe(rimraf())
 })
 
+// Add cache headers to express response
 function cacheHeader() {
   return (function (req, res, next) {
     res.setHeader("Cache-Control", "public, max-age=345600"); // 4 days
