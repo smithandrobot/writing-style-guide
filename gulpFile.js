@@ -98,7 +98,6 @@ gulp.task('clean', function() {
 })
 
 gulp.task('heroku:production', ['default'], function() {
-  gulp.start('serve');
 })
 // Add cache headers to express response
 function cacheHeader() {
