@@ -12,14 +12,18 @@ var sass = require('gulp-ruby-sass');
 var livereload = require('gulp-livereload');
 var lrScript = "<script src='http://localhost:35729/livereload.js'></script>\n</body>";
 var lr = require('tiny-lr');
+var compression = require('compression')
+var concat = require('gulp-concat');
+var server = express();
+var reload = lr();
+var uglify = require('gulp-uglify');
+
 var paths = {
   styles: './src/css/**/*.css',
   sass: ['./src/sass/**/*.scss', '!/static/sass/**/_*.scss'],
   html: './src/**/*.html',
   js: './src/js/*.js'
 }
-var server = express(),
-  reload = lr();
 
 env = process.env.NODE_ENV || 'development';
 console.log('Running in env: '+env);
@@ -49,8 +53,7 @@ gulp.task('css', function() {
 
 gulp.task('sass', function() {
   return gulp.src(paths.sass)
-        .pipe(gulpIf(env==='development', sass({ style: 'nested' })))
-        .pipe(gulpIf(env==='build', sass({ style: 'nested', bundleExec: true })))
+        .pipe(sass({ style: 'nested' }))
         .pipe(gulp.dest('./static/css'))
         .pipe(gulpIf(env === 'development',livereload(reload)))
 })
@@ -58,6 +61,9 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
   return gulp.src(paths.js)
         .pipe(gulp.dest('./static/js'))
+        .pipe(concat('all.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./static/js/'))
         .pipe(gulpIf(env==='development',livereload(reload)))
 })
 
@@ -73,13 +79,23 @@ gulp.task('watch', function() {
 });
 
 gulp.task('serve', function() {
+  if(env !== 'development') server.use(cacheHeader())
+  server.use(compression());
   server.use(express.static('./static'));
   server.listen(8000);
-  reload.listen(35729);
-  gulp.start('watch');
+  if(env === 'development') reload.listen(35729);
+  gulp.start(gulpIf(env === 'development','watch'));
 });
 
 gulp.task('clean', function() {
 	gulp.src(['./static'], {read:false})
 		.pipe(rimraf())
 })
+
+function cacheHeader() {
+  return (function (req, res, next) {
+    res.setHeader("Cache-Control", "public, max-age=345600"); // 4 days
+    res.setHeader("Expires", new Date(Date.now() + 345600000).toUTCString());
+    return next();
+  })
+}
