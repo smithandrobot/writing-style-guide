@@ -89,6 +89,7 @@ gulp.task('serve', function() {
   server.listen(port);
   if(env === 'development') reload.listen(35729);
   gulp.start(gulpIf(env === 'development','watch'));
+  
 });
 
 gulp.task('clean', function() {
@@ -96,6 +97,9 @@ gulp.task('clean', function() {
 		.pipe(rimraf())
 })
 
+gulp.task('heroku:production', ['default'], function() {
+
+})
 // Add cache headers to express response
 function cacheHeader() {
   return (function (req, res, next) {
