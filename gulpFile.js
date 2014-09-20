@@ -86,7 +86,7 @@ gulp.task('serve', function() {
   if(env !== 'development') server.use(cacheHeader())
   server.use(compression());
   server.use(express.static('./static'));
-  server.listen(8000);
+  server.listen(port);
   if(env === 'development') reload.listen(35729);
   gulp.start(gulpIf(env === 'development','watch'));
 });
