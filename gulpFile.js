@@ -26,7 +26,9 @@ var paths = {
 }
 
 env = process.env.NODE_ENV || 'development';
-console.log('Running in env: '+env);
+port = process.env.PORT || 8000;
+
+console.log('Running in env: '+env+'\n server on port: '+port);
 
 gulp.task('default', ['imgs','sass'], function() {
   var scriptsRe = /<\!--.*?Scripts([^*]+)End Scripts.*?>/g;
