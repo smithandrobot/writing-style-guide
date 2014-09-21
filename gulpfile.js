@@ -12,7 +12,7 @@ var sass = require('gulp-ruby-sass');
 var livereload = require('gulp-livereload');
 var lrScript = "<script src='http://localhost:35729/livereload.js'></script>\n</body>";
 var lr = require('tiny-lr');
-var compression = require('compression')
+var compression = require('compression');
 var concat = require('gulp-concat');
 var server = express();
 var reload = lr();
