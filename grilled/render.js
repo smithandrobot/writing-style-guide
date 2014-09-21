@@ -65,8 +65,10 @@ function registerHelpers() {
   h.registerHelper('getHTML', function(obj, fragment) {
     if(obj === undefined) return;
     var parser = require('./parser');
+    if(obj.slug==='tone-of-voice') console.log(obj.get(fragment).asHtml({linkResolver: linkResolver}))
     var html = obj.get(fragment).asHtml({linkResolver: linkResolver});
     html = html.replace(/\n/g, '<br>');
+    return html
     var result = null;
     var result = parser.parse(parser.parse2(html));
     return result;

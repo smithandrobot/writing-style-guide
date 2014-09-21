@@ -8,7 +8,6 @@ var rimraf = require('gulp-rimraf');
 var gulpIf = require('gulp-if');
 var replace = require('gulp-replace');
 var express = require('express');
-var sass = require('gulp-ruby-sass');
 var livereload = require('gulp-livereload');
 var lrScript = "<script src='http://localhost:35729/livereload.js'></script>\n</body>";
 var lr = require('tiny-lr');
@@ -21,7 +20,6 @@ var stylus = require('gulp-stylus');
 
 var paths = {
   styles: './src/css/**/*.css',
-  sass: ['./src/sass/**/*.scss', '!/static/sass/**/_*.scss'],
   stylus: ['./src/stylus/**/*.styl', '!./src/stylus/**/_*.styl'],
   html: './src/**/*.html',
   js: './src/js/*.js'
@@ -64,13 +62,6 @@ gulp.task('stylus', function() {
         .pipe(gulpIf(env === 'development',livereload(reload)))
 })
 
-gulp.task('sass', function() {
-  return gulp.src(paths.sass)
-        .pipe(sass({ style: 'nested' }))
-        .pipe(gulp.dest('./static/css'))
-        .pipe(gulpIf(env === 'development',livereload(reload)))
-})
-
 gulp.task('js', function() {
   return gulp.src(paths.js)
         .pipe(gulp.dest('./static/js'))
@@ -104,17 +95,10 @@ gulp.task('serve', function() {
 
 gulp.task('clean', function() {
 	gulp.src(['./static'], {read:false})
-		.pipe(rimraf())
+		.pipe(rimraf());
 })
 
 gulp.task('heroku:production', ['default'], function() {
 
 })
-// Add cache headers to express response
-function cacheHeader() {
-  return (function (req, res, next) {
-    res.setHeader("Cache-Control", "public, max-age=345600"); // 4 days
-    res.setHeader("Expires", new Date(Date.now() + 345600000).toUTCString());
-    return next();
-  })
-}
+
