@@ -9,7 +9,7 @@ app.use(compression());
 console.log('Serving from : '+__dirname + '/static')
 app.use(express.static(__dirname + '/static'));
 console.log('Running on port: '+port)
-app.listen(80);
+app.listen(port);
 
 // Add cache headers to express response
 function cacheHeader() {
