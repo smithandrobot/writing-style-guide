@@ -17,10 +17,12 @@ var concat = require('gulp-concat');
 var server = express();
 var reload = lr();
 var uglify = require('gulp-uglify');
+var stylus = require('gulp-stylus');
 
 var paths = {
   styles: './src/css/**/*.css',
   sass: ['./src/sass/**/*.scss', '!/static/sass/**/_*.scss'],
+  stylus: ['./src/stylus/**/*.styl', '!./src/stylus/**/_*.styl'],
   html: './src/**/*.html',
   js: './src/js/*.js'
 }
@@ -30,7 +32,7 @@ port = process.env.PORT || 8000;
 
 console.log('Running in env: '+env+'\n server on port: '+port);
 
-gulp.task('default', ['imgs','sass'], function() {
+gulp.task('default', ['imgs','stylus', 'js'], function() {
   var scriptsRe = /<\!--.*?Scripts([^*]+)End Scripts.*?>/g;
   return gulp.src([paths.html, '!./src/_layouts/**', '!./src/_partials/**'], {read:true})
   .pipe(docObj.get())
@@ -53,6 +55,13 @@ gulp.task('css', function() {
   return gulp.src(paths.styles, {read:false})
         .pipe(gulp.dest('./static/css'))
         .pipe(gulpIf(env==='development',livereload(reload)))
+})
+
+gulp.task('stylus', function() {
+  return gulp.src(paths.stylus)
+        .pipe(stylus())
+        .pipe(gulp.dest('./static/css'))
+        .pipe(gulpIf(env === 'development',livereload(reload)))
 })
 
 gulp.task('sass', function() {
@@ -78,6 +87,7 @@ gulp.task('test', function() {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch('./src/stylus/**/*.styl', ['stylus']);
   gulp.watch(paths.html, ['default']);
   gulp.watch(paths.js, ['js']);
 });
@@ -98,7 +108,7 @@ gulp.task('clean', function() {
 })
 
 gulp.task('heroku:production', ['default'], function() {
-  
+
 })
 // Add cache headers to express response
 function cacheHeader() {
