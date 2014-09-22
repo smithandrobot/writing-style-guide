@@ -35,7 +35,7 @@ function renderTable(str, cb) {
         if(a===0) {
           html += '\n      <th>'+$(this).html()+'</th>'
         }else{
-          html += '\n      <td>'+$(this).html()+'</td>'
+          html += '\n      <td><div>'+$(this).html()+'</div></td>'
         }
       })
       if(a===0) {

@@ -49,11 +49,11 @@ gulp.task('imgs', function() {
         .pipe(gulp.dest('./static/img'))
 })
 
-gulp.task('css', function() {
-  return gulp.src(paths.styles, {read:false})
-        .pipe(gulp.dest('./static/css'))
-        .pipe(gulpIf(env==='development',livereload(reload)))
-})
+// gulp.task('css', function() {
+//   return gulp.src(paths.styles, {read:false})
+//         .pipe(gulp.dest('./static/css'))
+//         .pipe(gulpIf(env==='development',livereload(reload)))
+// })
 
 gulp.task('stylus', function() {
   return gulp.src(paths.stylus)
@@ -77,7 +77,6 @@ gulp.task('test', function() {
 })
 
 gulp.task('watch', function() {
-  gulp.watch(paths.sass, ['sass']);
   gulp.watch('./src/stylus/**/*.styl', ['stylus']);
   gulp.watch(paths.html, ['default']);
   gulp.watch(paths.js, ['js']);

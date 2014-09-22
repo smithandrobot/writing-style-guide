@@ -1,9 +1,0 @@
-@import 'header';
-@import 'footer';
-@import 'table';
-
-/* required for prepareTransition */
-.is-transitioning {
-    display: block !important;
-    visibility: visible !important;
-}
