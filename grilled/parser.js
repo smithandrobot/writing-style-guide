@@ -24,19 +24,14 @@ function parsePre(str) {
 
 function renderTable(str, cb) {
   var html = undefined;
-  
+  // console.log('rendering table: \n'+str)
   jsdom.env(str, function (errors, window) {
     var $ = require('jquery/dist/jquery')(window);
     var uls = $('ul');
-
+    html = '<table class="style-guide-table">\n  <thead>\n';
     $.each(uls, function(a, b) {
-      html = '<table class="style-guide-table">\n  <thead>\n';
-      html +='    <tr>';
-      lis = $(this).find('li');
-      liTotal = lis.length;
-
-      $.each($(this).find('li'), function(liIndex, liData) {
-        //console.log('a: ', a)
+      html +='    <tr>'
+      $.each($(this).find('li'), function() {
         if(a===0) {
           html += '\n      <th>'+$(this).html()+'</th>'
         }else{
@@ -55,7 +50,7 @@ function renderTable(str, cb) {
   while(html===undefined) {
     require('deasync').runLoopOnce();
   }
-
+  console.log('html is: '+html);
   return html;
 }
 
@@ -63,12 +58,10 @@ function parseTable2(str, cb) {
   if(typeof str !== 'string') return 'str is not a string!';
   var parsed = false;
 
-  if(str.indexOf('[table]')> -1) {
-    
+  if(str.indexOf('[table')> -1) {
     str = str.replace(/\n/g, '');
     var re = /(?:\[table.*?\])(.*?)(?:\[end table\])/g;
     str = str.replace(re, function(a, b, c, d) {
-      //console.log(b)
       b = b.replace(/<(|\/)p>/g, '');
       var tableHTML = renderTable(b);
       //

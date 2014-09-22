@@ -9,7 +9,7 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "prismic.io": "~1.0.17",
+    "prismic.io": "~1.0.18",
     "handlebars": "~2.0.0-alpha.4",
     "gulp": "~3.8.7",
     "through2": "~0.6.1",
