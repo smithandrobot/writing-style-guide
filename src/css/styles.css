@@ -79,6 +79,55 @@
 .hero-banner--writing-guide .hero-banner__nav--last {
   margin-right: 0;
 }
+.mobile-nav__toggle {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+.mobile-nav__toggle i {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 0;
+  margin: 0 auto;
+  border-bottom: 2px solid #fff;
+  opacity: 1;
+  -webkit-transition: border-bottom-color 0s linear 0.2s;
+}
+.mobile-nav__toggle i:before,
+.mobile-nav__toggle i:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 40px;
+  height: 0;
+  border-bottom: 2px solid #fff;
+  opacity: 1;
+  -webkit-transform: rotateZ(0);
+  transition: top 0.2s linear, -webkit-transform 0.2s linear;
+  transition-delay: 0.4s, 0;
+}
+.mobile-nav__toggle i:before {
+  top: 10px;
+}
+.mobile-nav__toggle i:after {
+  top: -10px;
+}
+.js-mobile-nav-open .mobile-nav__toggle i {
+  border-bottom-color: transparent;
+}
+.js-mobile-nav-open .mobile-nav__toggle i:before,
+.js-mobile-nav-open .mobile-nav__toggle i:after {
+  top: 0;
+  transition-delay: 0, 0.4s;
+}
+.js-mobile-nav-open .mobile-nav__toggle i:before {
+  -webkit-transform: rotateZ(-45deg);
+}
+.js-mobile-nav-open .mobile-nav__toggle i:after {
+  -webkit-transform: rotateZ(45deg);
+}
 .mobile-nav {
   background-color: #333;
   margin-top: -25px;
@@ -132,6 +181,10 @@
 }
 .mobile-nav .mobile-nav__main .mobile-nav__main__panel li {
   padding-top: 10px;
+}
+.js-mobile-nav-open .mobile-nav__main {
+  display: block;
+  height: auto;
 }
 .style-guide-footer .style-guide-footer__link__direction {
   font-weight: 600;
