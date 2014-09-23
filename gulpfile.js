@@ -19,8 +19,8 @@ var uglify = require('gulp-uglify');
 var stylus = require('gulp-stylus');
 
 var paths = {
-  styles: './src/css/**/*.css',
-  stylus: ['./src/stylus/**/*.styl', '!./src/stylus/**/_*.styl'],
+  styles: './src/css/*.css',
+  stylus: './src/stylus/**/*.styl',
   html: './src/**/*.html',
   js: './src/js/*.js'
 }
@@ -45,19 +45,19 @@ gulp.task('default', ['imgs','stylus', 'js'], function() {
 })
 
 gulp.task('imgs', function() {
-  return gulp.src('./src/img/*.jpg', {read:true})
+  return gulp.src('./src/img/**/*')
         .pipe(gulp.dest('./static/img'))
 })
 
-// gulp.task('css', function() {
-//   return gulp.src(paths.styles, {read:false})
-//         .pipe(gulp.dest('./static/css'))
-//         .pipe(gulpIf(env==='development',livereload(reload)))
-// })
-
 gulp.task('stylus', function() {
-  return gulp.src(paths.stylus)
+  return gulp.src([paths.stylus, '!./src/stylus/**/_*.styl'])
         .pipe(stylus())
+        .pipe(gulp.dest('./src/css'))
+        // .pipe(gulpIf(env === 'development',livereload(reload)))
+})
+
+gulp.task('css', function() {
+  return gulp.src(paths.styles)
         .pipe(gulp.dest('./static/css'))
         .pipe(gulpIf(env === 'development',livereload(reload)))
 })
@@ -78,6 +78,7 @@ gulp.task('test', function() {
 
 gulp.task('watch', function() {
   gulp.watch('./src/stylus/**/*.styl', ['stylus']);
+  gulp.watch(paths.styles, ['css']);
   gulp.watch(paths.html, ['default']);
   gulp.watch(paths.js, ['js']);
 });
