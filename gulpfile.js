@@ -53,7 +53,6 @@ gulp.task('stylus', function() {
   return gulp.src([paths.stylus, '!./src/stylus/**/_*.styl'])
         .pipe(stylus())
         .pipe(gulp.dest('./src/css'))
-        // .pipe(gulpIf(env === 'development',livereload(reload)))
 })
 
 gulp.task('css', function() {
