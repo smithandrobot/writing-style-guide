@@ -1,0 +1,204 @@
+.hero-banner--writing-guide {
+  background: #7f7b18 no-repeat url("/img/writing-guide-leaf-header.jpg") center center;
+  background-size: cover;
+  background-position: bottom;
+}
+.hero-banner--writing-guide .grid__cell {
+  margin-bottom: 0;
+}
+.hero-banner--writing-guide .hero-banner__title {
+  margin: 0 0 50px;
+}
+.hero-banner--writing-guide .hero-banner__tw-logo {
+  width: 100%;
+  margin: 100px 0 50px 0;
+  text-align: center;
+}
+.hero-banner--writing-guide .hero-banner__tw-logo img {
+  max-width: 200px;
+}
+.hero-banner--writing-guide .hero-banner__nav {
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+.hero-banner--writing-guide .hero-banner__nav ul {
+  margin: 0;
+  padding: 0;
+}
+.hero-banner--writing-guide .hero-banner__nav a {
+  color: #fff;
+  font-style: italic;
+  display: block;
+  width: 100%;
+  min-height: 80px;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__ul {
+  background-color: #808080;
+  margin-left: 0;
+  padding: 0;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__ul li {
+  padding: 0;
+  float: left;
+  border-top: 1px solid #fff;
+  list-style-type: none;
+  width: 11%;
+  margin-right: 1.2%;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel {
+  background-color: #333;
+  padding: 8px 20px 20px;
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.2s;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel li {
+  border: none;
+  float: none;
+  width: 100%;
+  margin: 0;
+  border-bottom: 1px solid #767676;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel li:last-of-type {
+  border: none;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel a {
+  font-style: normal;
+  min-height: 0;
+  font-size: 0.87em;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel a:last-of-type {
+  border: none;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel--visible {
+  opacity: 1;
+  display: block;
+}
+.hero-banner--writing-guide .hero-banner__nav--last {
+  margin-right: 0;
+}
+.mobile-nav {
+  background-color: #333;
+  margin-top: -25px;
+}
+.mobile-nav a {
+  color: #fff;
+}
+.mobile-nav ul {
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.mobile-nav li {
+  text-align: center;
+}
+.mobile-nav .mobile-nav__main img {
+  float: right;
+  cursor: pointer;
+}
+.mobile-nav .mobile-nav__main > li > a {
+  font-size: 1.2em;
+  font-style: italic;
+}
+.mobile-nav .mobile-nav__main > li {
+  border-bottom: 1px solid #767676;
+  padding: 10px 0;
+}
+.mobile-nav .mobile-nav__main .mobile-nav__main__panel {
+  transition: width 2s;
+  overflow: hidden;
+}
+.mobile-nav .mobile-nav__main .mobile-nav__main__panel li {
+  padding-top: 10px;
+}
+.style-guide-footer .style-guide-footer__link__direction {
+  font-weight: 600;
+  font-size: 0.85em;
+  font-style: italic;
+  color: #808184;
+}
+.style-guide-footer .style-guide-footer__link--left {
+  float: left;
+}
+.style-guide-footer .style-guide-footer__link--right {
+  float: right;
+  text-align: right;
+}
+.style-guide-footer .title {
+  color: #00bccd;
+  font-size: 1.12em;
+}
+.style-guide-table {
+  border-collapse: inherit;
+  background-color: #808080;
+  font-size: 0.875em;
+}
+.style-guide-table thead {
+  border-bottom: 1px dashed #666;
+}
+.style-guide-table th {
+  background-color: #333;
+  color: #fff;
+}
+.style-guide-table th,
+.style-guide-table tbody tr td {
+/*font-style: italic;*/
+  background-color: #333;
+  color: #fff;
+  width: 50%;
+  font-size: 0.85em;
+  line-height: 1.2em;
+  border-bottom: 1px dashed #666;
+}
+.style-guide-table table tbody tr {
+  border-bottom: none;
+}
+.style-guide-table td:nth-child(2),
+.style-guide-table th:nth-child(2) {
+  background-color: #3d3d3d;
+}
+@media screen and (max-width: 600px) {
+  .style-guide-table table,
+  .style-guide-table tbody,
+  .style-guide-table tr,
+  .style-guide-table td,
+  .style-guide-table th {
+    display: block;
+    width: 100%;
+  }
+  .style-guide-table thead {
+    display: none;
+  }
+  .style-guide-table tbody tr {
+    border: none;
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+  .style-guide-table tbody tr td {
+    width: 90%;
+    padding: 5% !important;
+  }
+  .style-guide-table tbody td div {
+    display: inline-block;
+    width: 80%;
+    vertical-align: top;
+  }
+  .style-guide-table tbody td:before {
+    font-weight: bold;
+    content: attr(data-header-text);
+    display: block;
+    float: left;
+    position: static;
+    top: 0;
+    left: 0;
+    width: 18%;
+    padding: 0;
+  }
+}
+/* required for prepareTransition */
+.is-transitioning {
+  display: block !important;
+  visibility: visible !important;
+}

@@ -1,0 +1,41 @@
+.mobile-nav {
+	background-color: #333333;
+	margin-top: -25px;
+	a { color: #FFF; }
+
+	ul {
+		margin-left: 0;
+		padding-left: 0;
+		margin-bottom: 0;
+	}
+	
+	li { 
+		text-align: center;
+	}
+
+	.mobile-nav__main {
+		img {
+			float: right;
+			cursor: pointer;
+		}
+
+		> li > a {
+			font-size: 1.2em;
+			font-style: italic;
+		}
+
+		> li {
+			border-bottom: 1px solid #767676;
+			padding: 10px 0;
+		}
+
+		.mobile-nav__main__panel {
+			transition: height 200ms ease-in-out;
+			overflow: hidden;
+			li {
+				padding-top: 10px;
+			}
+		}
+	}
+
+}
