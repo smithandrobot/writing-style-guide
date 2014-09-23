@@ -3,7 +3,9 @@ $(function() {
   $buttons.on('click', onClick);
 
   function onClick(e) {
-    var $panel = $(this).parent().find('.mobile-nav__main__panel');
+  	var $parent = $(this).parent();
+    var $panel = $parent.find('.mobile-nav__main__panel');
+    $parent.toggleClass('js-nav-open');
     $panel.slideToggle();
   }
 });
