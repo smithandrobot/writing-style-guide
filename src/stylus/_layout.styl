@@ -1,0 +1,13 @@
+.mobile-only { }
+.desktop-only { display: none; } 
+
+@media screen and (min-width: 600px) {
+	.mobile-only { display: none; }
+	.desktop-only { display: block; }
+}
+
+.touch .touch-visible {}
+.touch .touch-hidden { display: none; }
+.no-touch .touch-visible { display: none; }
+.no-touch .touch-hidden {}
+
