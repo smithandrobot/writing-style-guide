@@ -30,7 +30,7 @@ port = process.env.PORT || 8000;
 
 console.log('Running in env: '+env+'\n server on port: '+port);
 
-gulp.task('default', ['imgs','stylus', 'js'], function() {
+gulp.task('default', ['imgs','stylus', 'css', 'js'], function() {
   var scriptsRe = /<\!--.*?Scripts([^*]+)End Scripts.*?>/g;
   return gulp.src([paths.html, '!./src/_layouts/**', '!./src/_partials/**'], {read:true})
   .pipe(docObj.get())
