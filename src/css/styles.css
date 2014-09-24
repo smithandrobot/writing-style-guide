@@ -80,6 +80,7 @@
   margin-right: 0;
 }
 .mobile-nav__toggle {
+  position: relative;
   width: 40px;
   height: 40px;
   margin: 0 auto;
@@ -127,6 +128,19 @@
 }
 .js-mobile-nav-open .mobile-nav__toggle i:after {
   -webkit-transform: rotateZ(45deg);
+}
+.mobile-nav__toggle img {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  -webkit-transform: rotate(0);
+  -webkit-transform-origin: 50% 30px;
+  transition: -webkit-transform 0.4s linear;
+}
+.js-mobile-nav-open .mobile-nav__toggle img {
+  -webkit-transform: rotate(180deg);
 }
 .mobile-nav {
   background-color: #333;
