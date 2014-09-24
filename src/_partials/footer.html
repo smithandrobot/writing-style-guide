@@ -1,23 +1,23 @@
 <div class="grid-wrapper style-guide-footer">
 	<div class="grid--center">
 		<div class="grid__cell unit-2-3--desk unit-2-3--lap unit-3-3--palm">
-			{{#backLink}}
+			{{#if backLink}}
 				<div class="style-guide-footer__link--left">
-					<a href="{{url}}">
+					<a href="{{backLink.url}}">
 						<span class="style-guide-footer__link__direction">Back</span><br>
-						<span class="title">{{title}}</span>
+						<span class="title">{{backLink.title}}</span>
 					</a>
 				</div>
-			{{/backLink}}
+			{{/if}}
 
-			{{#nextLink}}
+			{{#if nextLink}}
 				<div class="style-guide-footer__link--right">
-					<a href="{{url}}">
+					<a href="{{nextLink.url}}">
 						<span class="style-guide-footer__link__direction">Next</span><br>
-						<span class="title">{{title}}</span>
+						<span class="title">{{nextLink.title}}</span>
 					</a>
 				</div>
-			{{/nextLink}}
+			{{/if}}
 		</div>
 	</div>
 </div>

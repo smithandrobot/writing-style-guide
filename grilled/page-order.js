@@ -27,7 +27,6 @@ module.exports = {
     indexOf: function(title) {
         for (var i = pages.length - 1; i >= 0; i--) {
             if (pages[i].title == title) {
-                if (title == 'Landing Pages') { console.log('***',  i); }
                 return i;
             }
         }

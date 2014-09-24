@@ -50,7 +50,7 @@ function renderTable(str, cb) {
   while(html===undefined) {
     require('deasync').runLoopOnce();
   }
-  console.log('html is: '+html);
+  // console.log('html is: '+html);
   return html;
 }
 

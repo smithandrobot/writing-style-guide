@@ -109,11 +109,13 @@ module.exports = {
               addLayout(file.contents.toString('utf-8'), file.documentObject, function(str) {
                 ++currentDocCount;
                 var tpl = h.compile(str);
-                getPageOrder(doc.getText('article.title'));
-                file.documentObject.prismicDocument = doc;
-                file.documentObject.backLink = getRelatedLink(doc.getText('article.title'), -1);
-                file.documentObject.nextLink = getRelatedLink(doc.getText('article.title'), 1);
-                var rendered = tpl(file.documentObject);
+                
+                var variables = {};
+                variables.prismicDocument = doc;
+                variables.backLink = getRelatedLink(doc.getText('article.title'), -1);
+                variables.nextLink = getRelatedLink(doc.getText('article.title'), 1);
+
+                var rendered = tpl(variables);
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
                 file.contents = new Buffer(rendered);
                 this.push(newFileObj);
