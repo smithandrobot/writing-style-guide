@@ -77,12 +77,18 @@ function getPageOrder(title) {
   //console.log('Title found at: ', pageOrder.indexOf(title))
 }
 
+var getRelatedLink = function(title, offset) {
+  var currentIndex = pageOrder.indexOf(title);
+  var link = pageOrder.linkAt(currentIndex + offset);
+  return link;
+};
+
 module.exports = {
   render: function(opt) {
 
     registerHelpers();
 
-    var stream = through.obj(function(file ,encoding, callback) {
+    var stream = through.obj(function(file, encoding, callback) {
       registerPartials(opt, function() {
         if(file.documentObject.hasOwnProperty('document')) {
           if(file.documentObject.document.results.length > 0) {
@@ -105,6 +111,8 @@ module.exports = {
                 var tpl = h.compile(str);
                 getPageOrder(doc.getText('article.title'));
                 file.documentObject.prismicDocument = doc;
+                file.documentObject.backLink = getRelatedLink(doc.getText('article.title'), -1);
+                file.documentObject.nextLink = getRelatedLink(doc.getText('article.title'), 1);
                 var rendered = tpl(file.documentObject);
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
                 file.contents = new Buffer(rendered);
