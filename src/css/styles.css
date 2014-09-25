@@ -3,6 +3,11 @@
   background-size: cover;
   background-position: bottom;
 }
+@media screen and (max-width: 600px) {
+  .hero-banner--writing-guide {
+    padding-bottom: 50px;
+  }
+}
 .hero-banner--writing-guide .grid__cell {
   margin-bottom: 0;
 }
@@ -41,9 +46,16 @@
   padding: 0;
   float: left;
   border-top: 1px solid #fff;
+  border-top: 1px solid rgba(255,255,255,0.4);
   list-style-type: none;
   width: 11%;
   margin-right: 1.2%;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__ul > li {
+  padding: 0.5em 0 0 0;
+}
+.hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__ul > li > a {
+  line-height: 1.2;
 }
 .hero-banner--writing-guide .hero-banner__nav .hero-banner__nav__panel {
   background-color: #333;
@@ -84,16 +96,18 @@
   width: 40px;
   height: 40px;
   margin: 0 auto;
+  text-align: center;
+  padding-bottom: 30px;
 }
 .mobile-nav__toggle i {
   position: relative;
   display: inline-block;
-  width: 40px;
+  width: 35px;
   height: 0;
   margin: 0 auto;
-  border-bottom: 2px solid #fff;
+  border-bottom: 1px solid #fff;
   opacity: 1;
-  -webkit-transition: border-bottom-color 0s linear 0.2s;
+  -webkit-transition: border-bottom-color 0s ease-in-out 0.2s;
 }
 .mobile-nav__toggle i:before,
 .mobile-nav__toggle i:after {
@@ -101,12 +115,12 @@
   position: absolute;
   top: 0;
   display: block;
-  width: 40px;
+  width: 35px;
   height: 0;
-  border-bottom: 2px solid #fff;
+  border-bottom: 1px solid #fff;
   opacity: 1;
   -webkit-transform: rotateZ(0);
-  transition: top 0.2s linear, -webkit-transform 0.2s linear;
+  transition: top 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
   transition-delay: 0.4s, 0;
 }
 .mobile-nav__toggle i:before {
@@ -131,20 +145,20 @@
 }
 .mobile-nav__toggle img {
   position: absolute;
-  top: -10px;
+  top: -8px;
   left: 50%;
-  margin-left: -12px;
-  width: 24px;
+  margin-left: -9px;
+  width: 18px;
   -webkit-transform: rotate(180deg);
   -webkit-transform-origin: 50% 30px;
-  transition: -webkit-transform 0.4s linear;
+  transition: -webkit-transform 0.4s ease-in-out;
 }
 .js-mobile-nav-open .mobile-nav__toggle img {
   -webkit-transform: rotate(0);
 }
 .mobile-nav {
-  background-color: #333;
-  margin-top: -25px;
+  margin-top: -95px;
+  margin-bottom: 25px;
 }
 .mobile-nav a {
   color: #fff;
@@ -157,21 +171,26 @@
 .mobile-nav li {
   text-align: center;
 }
+.mobile-nav .mobile-nav__main {
+  padding: 0 10px;
+  margin: 0 auto;
+}
 .mobile-nav .mobile-nav__main img {
   position: absolute;
   right: 0;
-  top: 18px;
+  top: 21px;
   cursor: pointer;
+  width: 18px;
   -webkit-transform: scaleY(1);
   -moz-transform: scaleY(1);
   -ms-transform: scaleY(1);
   -o-transform: scaleY(1);
   transform: scaleY(1);
-  -webkit-transition: -webkit-transform 0.2s linear;
-  -moz-transition: -moz-transform 0.2s linear;
-  -ms-transition: -ms-transform 0.2s linear;
-  -o-transition: -o-transform 0.2s linear;
-  transition: transform 0.2s linear;
+  -webkit-transition: -webkit-transform 0.2s ease-in-out;
+  -moz-transition: -moz-transform 0.2s ease-in-out;
+  -ms-transition: -ms-transform 0.2s ease-in-out;
+  -o-transition: -o-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 .mobile-nav .mobile-nav__main .js-nav-open img {
   -webkit-transform: scaleY(-1);
@@ -195,6 +214,14 @@
 }
 .mobile-nav .mobile-nav__main .mobile-nav__main__panel li {
   padding-top: 10px;
+}
+@media screen and (min-width: 600px) {
+  .mobile-nav .mobile-nav__main {
+    width: 66%;
+  }
+}
+.mobile-nav__container {
+  background: #333;
 }
 .js-mobile-nav-open .mobile-nav__main {
   display: block;
