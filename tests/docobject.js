@@ -19,7 +19,7 @@ describe(__filename, function() {
                       "name" : "David set in Document",
                       "layout" : "main",
                       "queries": [
-                            {"bind": "articles", "query": "[[:d= at(document.type,\"article\")]]"}
+                            {"bind": "articles", "query": "[[:d= at(document.type,\"page\")]]"}
                              ]
                       };
     it('test file should exist', function(done) {
