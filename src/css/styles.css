@@ -3,10 +3,8 @@
   background-size: cover;
   background-position: bottom;
 }
-@media screen and (max-width: 600px) {
-  .hero-banner--writing-guide {
-    padding-bottom: 50px;
-  }
+.touch .hero-banner--writing-guide {
+  padding-bottom: 50px;
 }
 .hero-banner--writing-guide .grid__cell {
   margin-bottom: 0;
