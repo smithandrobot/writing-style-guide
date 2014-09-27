@@ -2,7 +2,7 @@ var through = require('through2');
 var Prismic = require("prismic.io").Prismic;
 
 function prismicAPIQuery(docQuery, cb) {  
-  Prismic.Api('https://sr-test.prismic.io/api', function(err, api) {
+  Prismic.Api('https://twwritingguide.prismic.io/api', function(err, api) {
     if(err) {
       console.error(err);
       return ;

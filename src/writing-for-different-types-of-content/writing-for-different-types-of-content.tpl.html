@@ -2,15 +2,15 @@
 {
 	"layout": "main",
 	"queries": [
-				{"bind": "document", "form": "writing-for-different-types-of-content"}
+				{"bind": "document", "form": "writing-different-types-content"}
 			   ]
 }
 </script>
 <div class="grid-wrapper">
 	<div class="grid--center">
 		<div class="grid__cell unit-2-3--desk unit-2-3--lap unit-3-3--palm prismic-content">
-			<h2>{{ prismicContext prismicDocument "getText" "article.title" }}</h2>
-			{{{ getHTML prismicDocument "article.content" }}}
+			<h2>{{ prismicContext prismicDocument "getText" "page.title" }}</h2>
+			{{{ getHTML prismicDocument "page.content" }}}
 		</div>
 	</div>
 </div>

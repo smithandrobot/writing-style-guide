@@ -49,7 +49,7 @@ function renderFile(str, file, callback) {
 
 
 function linkResolver(ctx, documentLink) {
-  //console.log(documentLink);
+  console.log(documentLink, 'parent doc: ', ctx.parentDocument, 'slug ', documentLink.slug);
   var rootDir = '/'
   return rootDir+documentLink.slug+'/index.html';
 }
@@ -65,16 +65,12 @@ function registerHelpers() {
   h.registerHelper('getHTML', function(obj, fragment) {
     if(obj === undefined) return;
     var parser = require('./parser');
-    var html = obj.get(fragment).asHtml({linkResolver: linkResolver});
+    var html = obj.get(fragment).asHtml({linkResolver: linkResolver, parentDocument: obj.parentDocument});
     html = html.replace(/\n/g, '<br>');
     var result = null;
     var result = parser.parse(parser.parse2(html));
     return result;
   });
-}
-
-function getPageOrder(title) {
-  //console.log('Title found at: ', pageOrder.indexOf(title))
 }
 
 var getRelatedLink = function(title, offset) {
@@ -112,9 +108,10 @@ module.exports = {
                 
                 var variables = {};
                 variables.prismicDocument = doc;
-                variables.backLink = getRelatedLink(doc.getText('article.title'), -1);
-                variables.nextLink = getRelatedLink(doc.getText('article.title'), 1);
-
+                variables.prismicDocument.parentDocument = parentFolder;
+                variables.backLink = getRelatedLink(doc.getText('page.title'), -1);
+                variables.nextLink = getRelatedLink(doc.getText('page.title'), 1);
+                console.log('rendering: ', dest+parentFolder+slug+'/index.html'.replace(/\/\//g, '/'));
                 var rendered = tpl(variables);
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
                 file.contents = new Buffer(rendered);
