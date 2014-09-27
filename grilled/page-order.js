@@ -2,7 +2,7 @@ var pages = [
     { title: 'Before You Start Writing', url: '/before-you-start-writing/' },
     { title: 'Audience', url: '/before-you-start-writing/audience/' },
     { title: 'Narrative Perspective', url: '/before-you-start-writing/narrative-perspective/' },
-    // { title: 'Verb Tense', url: '' },
+    { title: 'Verb Tense', url: '/before-you-start-writing/verb-tense/' },
     { title: 'Tone of Voice', url: '/tone-of-voice/' },
     { title: 'Style', url: '/style/' },
     { title: 'Simplicity and Clutter', url: '/simplicity-and-clutter/' },
@@ -39,5 +39,13 @@ module.exports = {
         }
 
         return pages[index];
+    },
+    indexOfURL: function(url) {
+        for (var i = pages.length - 1; i >= 0; i--) {
+            if (pages[i].url.indexOf(url) > -1) {
+                return pages[i].url;
+            }
+        }
+        return false;
     }
 };
