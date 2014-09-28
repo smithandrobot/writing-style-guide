@@ -251,25 +251,47 @@
   border-bottom: 1px dashed #666;
 }
 .style-guide-table th {
-  background-color: #333;
-  color: #fff;
+  font-style: italic;
 }
-.style-guide-table th,
+.style-guide-table thead tr th,
 .style-guide-table tbody tr td {
 /*font-style: italic;*/
-  background-color: #333;
-  color: #fff;
+  background-color: #fff;
+  color: #333;
   width: 50%;
-  font-size: 0.85em;
-  line-height: 1.2em;
+  font-size: 1em;
+  line-height: 1.4em;
   border-bottom: 1px dashed #666;
+  position: relative;
+  padding: 10px 0 10px 0;
 }
 .style-guide-table table tbody tr {
   border-bottom: none;
 }
-.style-guide-table td:nth-child(2),
-.style-guide-table th:nth-child(2) {
-  background-color: #3d3d3d;
+.style-guide-table tr td:nth-child(1) {
+  color: #b2413c;
+}
+.style-guide-table tr td:nth-child(1) div:nth-child(1) {
+  width: 80%;
+}
+.style-guide-table.style-guide-table--3-column tr td:nth-child(2) {
+  color: #b2413c;
+}
+.style-guide-table.style-guide-table--3-column th,
+.style-guide-table.style-guide-table--3-column tbody tr td {
+  width: 33%;
+}
+.style-guide-table .style-guide-table__arrow {
+  position: absolute;
+  top: 11px;
+  font-weight: bold;
+  color: #a1d8db;
+  font-size: 25px;
+  font-style: normal;
+  right: 10px;
+}
+.style-guide-table .style-guide-table__arrow:before {
+  content: '→';
 }
 @media screen and (max-width: 600px) {
   .style-guide-table table,
@@ -279,6 +301,7 @@
   .style-guide-table th {
     display: block;
     width: 100%;
+    position: relative;
   }
   .style-guide-table thead {
     display: none;
@@ -288,6 +311,7 @@
     border-bottom: none;
     margin-bottom: 0;
   }
+  .style-guide-table.style-guide-table--3-column tbody tr td,
   .style-guide-table tbody tr td {
     width: 90%;
     padding: 5% !important;
@@ -307,6 +331,12 @@
     left: 0;
     width: 18%;
     padding: 0;
+  }
+  .style-guide-table .style-guide-table tr td:nth-child(1) div:nth-child(1) {
+    width: 100%;
+  }
+  .style-guide-table .style-guide-table__arrow {
+    display: none;
   }
 }
 .desktop-only {

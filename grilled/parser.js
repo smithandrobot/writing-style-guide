@@ -28,14 +28,17 @@ function renderTable(str, cb) {
   jsdom.env(str, function (errors, window) {
     var $ = require('jquery/dist/jquery')(window);
     var uls = $('ul');
-    html = '<table class="style-guide-table">\n  <thead>\n';
+    var columnCount = $(uls[0]).find('li').length;
+    html = '<table class="style-guide-table style-guide-table--'+columnCount+'-column">\n  <thead>\n';
+    var arrow = ''
     $.each(uls, function(a, b) {
       html +='    <tr>'
-      $.each($(this).find('li'), function() {
+      $.each($(this).find('li'), function(liIndex) {
         if(a===0) {
           html += '\n      <th>'+$(this).html()+'</th>'
         }else{
-          html += '\n      <td><div>'+$(this).html()+'</div></td>'
+          var arrow = (liIndex===0) ? '<div class="style-guide-table__arrow"></div>' : '';
+          html += '\n      <td><div>'+$(this).html()+'</div>'+arrow+'</td>'
         }
       })
       if(a===0) {
