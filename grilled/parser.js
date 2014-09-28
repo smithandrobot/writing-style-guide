@@ -40,7 +40,7 @@ function renderTable(str, cb) {
         }
       })
       if(a===0) {
-        html += '\n    </tr>\n  </thead>\n  <tbody>';  
+        html += '\n    </tr>\n  </thead>\n  <tbody>\n';  
       }else{
         html += '\n  </tr>\n';  
       }
@@ -51,7 +51,7 @@ function renderTable(str, cb) {
   while(html===undefined) {
     require('deasync').runLoopOnce();
   }
-  // console.log('html is: '+html);
+  
   return html;
 }
 
