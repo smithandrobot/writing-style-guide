@@ -36,7 +36,8 @@ function addLayout(str, obj, cb) {
     return;
   }
   fs.readFile(process.cwd()+'/src/_layouts/'+obj.layout+'.html', 'utf-8', function(err, data) {
-    cb(data.replace(/\{\{.*content.*\}\}/, str));
+    var newStr = data.replace(/\{\{.*content.*\}\}/, str);
+    cb(newStr);
   })
 }
 
@@ -49,7 +50,6 @@ function renderFile(str, file, callback) {
 
 
 function linkResolver(ctx, documentLink) {
-  //console.log('***\nslug: ', documentLink.slug, '\n', ctx.pageOrder.indexOfURL(documentLink.slug));
   var url = ctx.pageOrder.indexOfURL(documentLink.slug);
   if(url) {
     return url;
@@ -125,16 +125,14 @@ module.exports = {
             }.bind(this))
           } else {
             console.log('file does not have more than one result: ', file.path, 'total results: ', file.documentObject.document.results.length)
-            //this.push(file);
+            this.push(file);
             callback();
           }
         }else{
           addLayout(file.contents.toString('utf-8'), file.documentObject, function(str) {
-            //file.documentObject.prismicDocument = doc;
             file.documentObject = file.documentObject || {};
             var tpl = h.compile(str);
             var rendered = tpl(file.documentObject);
-            //console.log('Total docs: ', file.documentObject.document.results.length);
             file.contents = new Buffer(rendered);
             this.push(file);
             callback();

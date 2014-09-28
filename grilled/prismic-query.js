@@ -37,7 +37,6 @@ module.exports = {
             }.bind(this))
           }.bind(this))
       } else {
-        console.warn(file.path, ' has no queries');
         this.push(file);
         callback();
       }
