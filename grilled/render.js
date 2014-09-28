@@ -71,7 +71,6 @@ function registerHelpers() {
     var parser = require('./parser');
     var html = obj.get(fragment).asHtml({linkResolver: linkResolver, pageOrder: pageOrder});
     html = html.replace(/\n/g, '<br>');
-    var result = null;
     var result = parser.parse(parser.parseTables(html));
     return result;
   });

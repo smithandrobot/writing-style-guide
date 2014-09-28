@@ -15,7 +15,6 @@ function parsePre(str) {
 
   var re = /(?:<pre>)(.*?)(?:<\/pre>)/g;
   str = str.replace(re, function(a, b) {
-    console.log('stuff inside pre ', b)
     return parseType(b);
   })
   return str;
