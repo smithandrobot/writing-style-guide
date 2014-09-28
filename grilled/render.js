@@ -72,7 +72,7 @@ function registerHelpers() {
     var html = obj.get(fragment).asHtml({linkResolver: linkResolver, pageOrder: pageOrder});
     html = html.replace(/\n/g, '<br>');
     var result = null;
-    var result = parser.parse(parser.parse2(html));
+    var result = parser.parse(parser.parseTables(html));
     return result;
   });
 }

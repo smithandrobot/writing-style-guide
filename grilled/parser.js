@@ -4,22 +4,21 @@ var deasync = require('deasync');
 
 
 function parseBlockquote(str) {
-  str = str.replace('blockquote>', '');
+  str = str.replace('blockquote&gt;', '');
   return '<blockquote>'+str+'</blockquote>'
 }
 
 
 
 function parsePre(str) {
-  str = str.replace(/\n/g, '')
-  var pString = str.split(/<pre>(.*?)<\/pre>/);
-  
-  pString.forEach(function(str2, index) {
-    if(index%2) {
-        pString[index] = parseType(str2);
-      }
+  if(str.indexOf('<pre>') === -1) return str
+
+  var re = /(?:<pre>)(.*?)(?:<\/pre>)/g;
+  str = str.replace(re, function(a, b) {
+    console.log('stuff inside pre ', b)
+    return parseType(b);
   })
-  return pString.join('');
+  return str;
 }
 
 function renderTable(str, cb) {
@@ -57,7 +56,7 @@ function renderTable(str, cb) {
   return html;
 }
 
-function parseTable2(str, cb) {
+function parseTable(str, cb) {
   if(typeof str !== 'string') return 'str is not a string!';
   var parsed = false;
 
@@ -77,7 +76,8 @@ function parseTable2(str, cb) {
 }
 
 function parseType(str) {
-  if(str.indexOf('blockquote>') > -1) return parseBlockquote(str);
+  if(str.indexOf('blockquote&gt;') > -1) return parseBlockquote(str);
+  return str;
 }
 
 
@@ -87,7 +87,7 @@ var mod = {
     return str;
   },
 
-  parse2: parseTable2
+  parseTables: parseTable
 
 
 }
