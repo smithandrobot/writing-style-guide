@@ -93,7 +93,6 @@ module.exports = {
           if(file.documentObject.document.results.length > 0) {
             var totalDocs = file.documentObject.document.results.length;
             var currentDocCount = 0;
-
             // loop through the results and make a document for each result
             file.documentObject.document.results.forEach(function(doc, index) {
               var dest = process.cwd()+'/static/';
@@ -124,11 +123,11 @@ module.exports = {
               }.bind(this))
             }.bind(this))
           } else {
-            console.log('file does not have more than one result: ', file.path, 'total results: ', file.documentObject.document.results.length)
             this.push(file);
             callback();
           }
         }else{
+          console.log(file.path, ' has no results')
           addLayout(file.contents.toString('utf-8'), file.documentObject, function(str) {
             file.documentObject = file.documentObject || {};
             var tpl = h.compile(str);

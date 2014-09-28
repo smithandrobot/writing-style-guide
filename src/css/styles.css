@@ -277,6 +277,12 @@
 .style-guide-table.style-guide-table--3-column tr td:nth-child(2) {
   color: #b2413c;
 }
+.style-guide-table.style-guide-table--3-column tr td:nth-child(2) div:nth-child(1) {
+  width: 80%;
+}
+.style-guide-table.style-guide-table--3-column tr td:nth-child(1) {
+  color: #333;
+}
 .style-guide-table.style-guide-table--3-column th,
 .style-guide-table.style-guide-table--3-column tbody tr td {
   width: 33%;

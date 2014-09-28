@@ -35,7 +35,8 @@ function renderTable(str, cb) {
         if(a===0) {
           html += '\n      <th>'+$(this).html()+'</th>'
         }else{
-          var arrow = (liIndex===0) ? '<div class="style-guide-table__arrow"></div>' : '';
+          var arrow = (liIndex===0 && columnCount==2) ? '<div class="style-guide-table__arrow"></div>' : '';
+          arrow = (liIndex===1 && columnCount==3) ? '<div class="style-guide-table__arrow"></div>' : arrow;
           html += '\n      <td><div>'+$(this).html()+'</div>'+arrow+'</td>'
         }
       })
