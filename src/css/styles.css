@@ -244,7 +244,6 @@
 }
 .style-guide-table {
   border-collapse: inherit;
-  background-color: #808080;
   font-size: 0.875em;
 }
 .style-guide-table thead {
@@ -319,8 +318,8 @@
   }
   .style-guide-table.style-guide-table--3-column tbody tr td,
   .style-guide-table tbody tr td {
-    width: 90%;
-    padding: 5% !important;
+    width: 100%;
+    padding: 5% 0;
   }
   .style-guide-table tbody td div {
     display: inline-block;

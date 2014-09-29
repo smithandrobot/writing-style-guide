@@ -9,7 +9,8 @@ function prismicAPIQuery(docQuery, cb) {
     }
     var ref = docQuery.ref || api.master();
     var form = docQuery.form || 'everything';
-    var apiForm = api.form(form).ref(ref)
+    var apiForm = api.form(form).ref(ref);
+    //apiForm.set('orderings', '[my.menu-item.weight]');
     if(docQuery.query) apiForm.query(docQuery.query);
 
     apiForm.submit(function(err, d) {

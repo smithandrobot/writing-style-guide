@@ -121,11 +121,13 @@ module.exports = {
                 variables.backLink = getRelatedLink(doc.getText('page.title'), -1);
                 variables.nextLink = getRelatedLink(doc.getText('page.title'), 1);
                 var rendered = tpl(variables);
+                console.log('adding file: '+dest+parentFolder+slug+'/index.html'+ ' to stream');
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
-                file.contents = new Buffer(rendered);
                 this.push(newFileObj);
                 if(currentDocCount === totalDocs) {
-                  callback();
+                  currentDocCount = 0;
+                  console.log('currentDocCount: '+currentDocCount+', totalDocs: '+totalDocs)
+                  callback(); // <--- This is occasionally getting called twice
                 }
               }.bind(this))
             }.bind(this))
@@ -134,7 +136,7 @@ module.exports = {
             callback();
           }
         }else{
-          console.log(file.path, ' has no results')
+          console.log('adding file: '+file.path+ ' to stream');
           addLayout(file.contents.toString('utf-8'), file.documentObject, function(str) {
             file.documentObject = file.documentObject || {};
             var tpl = h.compile(str);
