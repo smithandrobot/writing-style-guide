@@ -62,8 +62,9 @@ function linkResolver(ctx, documentLink) {
 function registerHelpers() {
 
   h.registerHelper('prismicContext', function(obj, method, args) {
-    if(obj === undefined) return;
-    return obj[method](args);
+    if(obj === undefined) return 'ThoughtWorks Writing Style Guide';
+    var val = obj[method](args);
+    return (val !== '') ? val : 'ThoughtWorks Writing Style Guide';
   });
 
   h.registerHelper('getHTML', function(obj, fragment) {
@@ -76,9 +77,9 @@ function registerHelpers() {
   });
 
   h.registerHelper('getDescription', function(obj) {
-    if(obj === undefined) return;
+    if(obj === undefined) return 'ThoughtWorks Writing Style Guide';
     var description = obj.getStructuredText("page.content").getFirstParagraph().text.replace(/\n/g, ' ').substring(0, 197)+'...';
-    return description;
+    return (description !== '') ? description : 'ThoughtWorks Writing Style Guide';
   });
 }
 
