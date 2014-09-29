@@ -1,8 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" itemscope itemtype="http://schema.org/Article">
 	<head>
 		<title>{{ prismicContext prismicDocument "getText" "page.title" }}</title>
 		<meta charset="utf-8"/>
+		<meta name="description" content="{{ getDescription prismicDocument }}" />
 		<meta content="51785b823a23f311964437d825349ebf" name="p:domain_verify">
 		<meta property="twitter:account_id" content="23009949" />
 		{{ extraMeta }}
@@ -14,6 +15,32 @@
 		<link href="http://www.thoughtworks.com/imgs/touch-icon-ipad.png" rel="apple-touch-icon" sizes="72x72">
 		<link href="http://www.thoughtworks.com/imgs/touch-icon-iphone-retina.png" rel="apple-touch-icon" sizes="114x114">
 		<link href="http://www.thoughtworks.com/imgs/touch-icon-ipad-retina.png" rel="apple-touch-icon" sizes="144x144">
+
+		<!-- Google Authorship and Publisher Markup --> 
+		<link rel="publisher" href="http://plus.google.com/+ThoughtWorks" />
+		<link rel="author" href="http://plus.google.com/+ThoughtWorks" />
+
+		<!-- Schema.org markup for Google+ --> 
+		<meta itemprop="name" content="{{ prismicContext prismicDocument "getText" "page.title" }}"> 
+		<meta itemprop="description" content="{{ getDescription prismicDocument }}"> 
+		<meta itemprop="image" content="http://assets.thoughtworks.com/marketo/images/og_image.jpg" />
+
+		<!-- Twitter Card data --> 
+		<meta name="twitter:card" content="summary_large_image"> 
+		<meta name="twitter:site" content="@thoughtworks"> 
+		<meta name="twitter:title" content="{{ prismicContext prismicDocument "getText" "page.title" }}"> 
+		<meta name="twitter:description" content="{{ getDescription prismicDocument }}">
+
+		<!-- Twitter summary card with large image must be at least 280x150px --> 
+		<meta name="twitter:image:src" content="http://assets.thoughtworks.com/marketo/images/og_image.jpg">
+
+		<!-- Open Graph data --> 
+		<meta property="og:title" content="{{ prismicContext prismicDocument "getText" "page.title" }}" /> 
+		<meta property="og:type" content="article" /> 
+		<meta property="og:image" content="http://assets.thoughtworks.com/marketo/images/og_image.jpg" />
+		<meta property="og:description" content="{{ getDescription prismicDocument }}" /> 
+		<meta property="og:site_name" content="ThoughtWorks Writing Style Guide" /> 
+
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 		<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800,900" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="http://www.thoughtworks.com/css/screen.css" />

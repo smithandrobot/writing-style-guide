@@ -74,6 +74,12 @@ function registerHelpers() {
     var result = parser.parse(parser.parseTables(html));
     return result;
   });
+
+  h.registerHelper('getDescription', function(obj) {
+    if(obj === undefined) return;
+    var description = obj.getStructuredText("page.content").getFirstParagraph().text.replace(/\n/g, ' ').substring(0, 197)+'...';
+    return description;
+  });
 }
 
 var getRelatedLink = function(title, offset) {
