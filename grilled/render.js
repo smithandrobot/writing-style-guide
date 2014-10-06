@@ -126,7 +126,6 @@ module.exports = {
                 this.push(newFileObj);
                 if(currentDocCount === totalDocs) {
                   currentDocCount = 0;
-                  console.log('currentDocCount: '+currentDocCount+', totalDocs: '+totalDocs)
                   callback(); // <--- This is occasionally getting called twice
                 }
               }.bind(this))

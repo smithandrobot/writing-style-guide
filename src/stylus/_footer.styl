@@ -1,18 +1,42 @@
 .style-guide-footer
+    img
+        display: inline-block
+        vertical-align: middle
+        width: 15px;
+        height: auto;
 
-	.style-guide-footer__link__direction
-		font-weight: 600;
-		font-size: .85em;
-		font-style: italic;
-		color: #808184;
+    .style-guide-footer__link__direction
+        font-weight: 600;
+        font-size: .85em;
+        font-style: italic;
+        color: #808184;
 
-	.style-guide-footer__link--left
-		float: left;
+    .style-guide-footer__link--left
+        float: left;
+        width: 50%;
+        div
+            width: 70%;
+            display: inline-block;
+            vertical-align: middle;
+        img 
+            padding-right: 10px;
 
-	.style-guide-footer__link--right
-		float: right;
-		text-align: right;
+    .style-guide-footer__link--right
+        float: right;
+        width: 50%;
+        text-align: right;
+        div
+            width: 70%;
+            display: inline-block;
+            vertical-align: middle;
+        img 
+            padding-left: 10px;
 
-	.title
-		color: #00bccd;
-		font-size: 1.12em;
+    .title
+        color: #00bccd;
+        font-size: 1.12em;
+
+@media screen and (max-width: 600px)
+    .style-guide-footer
+        .title 
+            display: none

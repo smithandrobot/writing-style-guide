@@ -80,16 +80,11 @@ function parseType(str) {
   return str;
 }
 
-
-var mod = {
+module.exports = {
   parse: function(str) {
     var str = parsePre(str);
     return str;
   },
 
   parseTables: parseTable
-
-
-}
-
-module.exports = mod;
+};

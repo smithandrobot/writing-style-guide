@@ -225,6 +225,12 @@
   display: block;
   height: auto;
 }
+.style-guide-footer img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  height: auto;
+}
 .style-guide-footer .style-guide-footer__link__direction {
   font-weight: 600;
   font-size: 0.85em;
@@ -233,14 +239,37 @@
 }
 .style-guide-footer .style-guide-footer__link--left {
   float: left;
+  width: 50%;
+}
+.style-guide-footer .style-guide-footer__link--left div {
+  width: 70%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.style-guide-footer .style-guide-footer__link--left img {
+  padding-right: 10px;
 }
 .style-guide-footer .style-guide-footer__link--right {
   float: right;
+  width: 50%;
   text-align: right;
+}
+.style-guide-footer .style-guide-footer__link--right div {
+  width: 70%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.style-guide-footer .style-guide-footer__link--right img {
+  padding-left: 10px;
 }
 .style-guide-footer .title {
   color: #00bccd;
   font-size: 1.12em;
+}
+@media screen and (max-width: 600px) {
+  .style-guide-footer .title {
+    display: none;
+  }
 }
 .style-guide-table {
   border-collapse: inherit;
