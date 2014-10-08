@@ -14,6 +14,9 @@ function prismicAPIQuery(docQuery, cb) {
     if(docQuery.query) apiForm.query(docQuery.query);
 
     apiForm.submit(function(err, d) {
+      if(err) {
+        console.log('Prismic API Submit err: ', err);
+      }
       if(cb) cb(d);
     })
   })
