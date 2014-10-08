@@ -16,7 +16,7 @@ describe(__filename, function() {
 		.pipe(through.obj(function(file, encoding, callback) {
 			jsdom.env(file.contents.toString('utf-8'), function (errors, window) {
 				var $ = require('jquery/dist/jquery')(window);
-			    assert.equal('Before You Start Writing', $("h2").text());
+			    assert.equal('Before You Start', $("h2").text());
 			    done();
 			  }
 			);

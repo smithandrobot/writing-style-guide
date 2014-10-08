@@ -54,8 +54,8 @@ function linkResolver(ctx, documentLink) {
   if(url) {
     return url;
   }
-  var rootDir = '/'
-  return rootDir+documentLink.slug+'/index.html';
+  var rootDir = '/'+slugify(documentLink.tags[0]);
+  return rootDir+'/'+documentLink.slug+'/index.html';
 }
 
 
@@ -86,8 +86,14 @@ function registerHelpers() {
 var getRelatedLink = function(title, offset) {
   var currentIndex = pageOrder.indexOf(title);
   var link = pageOrder.linkAt(currentIndex + offset);
+  if(title=='ThoughtWorks Specifics') {
+  } 
   return link;
 };
+
+function slugify(str) {
+  return str.toLowerCase().replace(/\s/g, '-')
+}
 
 module.exports = {
   render: function(opt) {
@@ -120,11 +126,13 @@ module.exports = {
                 variables.prismicDocument.parentDocument = parentFolder;
                 variables.backLink = getRelatedLink(doc.getText('page.title'), -1);
                 variables.nextLink = getRelatedLink(doc.getText('page.title'), 1);
-                var rendered = tpl(variables);
+                var rendered = false;
+                rendered = tpl(variables);
                 console.log('adding file: '+dest+parentFolder+slug+'/index.html'+ ' to stream');
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
                 this.push(newFileObj);
                 if(currentDocCount === totalDocs) {
+                  console.log('done with files')
                   currentDocCount = 0;
                   callback(); // <--- This is occasionally getting called twice
                 }
