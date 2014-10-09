@@ -1,13 +1,16 @@
 <script type="text/grilled" data-binding="document">
 {
-	"layout": "main"
+	"layout": "main",
+	"queries": [
+				{"bind": "document", "form": "everything", "query": "[[:d = any(document.id, [\"VDWyTCUAACIAFpi1\"])]]"}
+			   ]
 }
 </script>
 <div class="grid-wrapper">
 	<div class="grid">
-		<div class="grid__cell unit-2-3--desk unit-2-3--lap unit-3-3--palm prismic-content">
-			<h2>This is the home page. {{title}}</h2>
-			<p>This is the homepage content.</p>
+		<div class="grid__cell prismic-content">
+			<h2>{{ prismicContext prismicDocument "getText" "page.title" }}</h2>
+			{{{ getHTML prismicDocument "page.content" }}}
 		</div>
 	</div>
 </div>

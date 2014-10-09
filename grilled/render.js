@@ -128,7 +128,12 @@ module.exports = {
                 variables.nextLink = getRelatedLink(doc.getText('page.title'), 1);
                 var rendered = false;
                 rendered = tpl(variables);
-                console.log('adding file: '+dest+parentFolder+slug+'/index.html'+ ' to stream');
+                if(parentFolder === 'src/') {
+                  parentFolder = '';
+                  slug= '';
+                  
+                }
+                console.log('parentFolder: ', parentFolder, ' adding file: '+dest+parentFolder+slug+'/index.html'+ ' to stream');
                 var newFileObj = new vinylFile( {cwd: file.cwd, base: file.base, path: dest+parentFolder+slug+'/index.html', contents: new Buffer(rendered)});
                 this.push(newFileObj);
                 if(currentDocCount === totalDocs) {
