@@ -1,7 +1,7 @@
 var pages = [
     { title: 'Before You Start', url: '/before-you-start/' },
     { title: 'Tune in to Your Reader', url: '/before-you-start/tune-in-to-your-reader/' },
-    { title: 'Choose a Perspective: 1st, 2nd, or 3rd Person', url: '/before-you-start/choose-a-perspective-1st-2nd-or-3rd-person/' },
+    { title: 'Choose a Perspective: 1st, 2nd, or 3rd Person', url: '/before-you-start/narrative-perspective/' },
     { title: 'Make Your Verbs Work', url: '/before-you-start/make-your-verbs-work/' },
     { title: 'Tone of Voice', url: '/tone-of-voice/' },
     { title: 'Style', url: '/style/' },
