@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var prettify = require('gulp-prettify');
-var mocha = require('gulp-mocha');
 var docObj = require('./grilled/document-object');
 var prismicQuery = require('./grilled/prismic-query');
 var renderer = require('./grilled/render');
@@ -71,6 +70,8 @@ gulp.task('js', function() {
 })
 
 gulp.task('test', function() {
+  var mocha = require('gulp-mocha');
+  
   return gulp.src('./tests/*.js', {read: false})
     .pipe(mocha());
 })
