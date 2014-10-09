@@ -45,7 +45,7 @@ module.exports = {
     },
     indexOfURL: function(url) {
         for (var i = pages.length - 1; i >= 0; i--) {
-            if (pages[i].url.indexOf(url) > -1) {
+            if (pages[i].url == url) {
                 return i;
             }
         }
