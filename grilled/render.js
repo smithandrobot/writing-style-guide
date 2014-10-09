@@ -50,7 +50,7 @@ function renderFile(str, file, callback) {
 
 
 function linkResolver(ctx, documentLink) {
-  var url = ctx.pageOrder.indexOfURL(documentLink.slug);
+  var url = ctx.pageOrder.urlForSlug(documentLink.slug);
   if(url) {
     return url;
   }
@@ -83,11 +83,12 @@ function registerHelpers() {
   });
 }
 
-var getRelatedLink = function(title, offset) {
-  var currentIndex = pageOrder.indexOf(title);
+var getRelatedLink = function(url, offset) {
+  var currentIndex = pageOrder.indexOfURL(url);
   var link = pageOrder.linkAt(currentIndex + offset);
-  if(title=='ThoughtWorks Specifics') {
-  } 
+  // TODO Do we still need this?
+  // if(title=='ThoughtWorks Specifics') {
+  // } 
   return link;
 };
 
@@ -120,12 +121,16 @@ module.exports = {
               addLayout(file.contents.toString('utf-8'), file.documentObject, function(str) {
                 ++currentDocCount;
                 var tpl = h.compile(str);
+                var path = '/' + parentFolder;
+                if (slug) {
+                  path += slug + '/';
+                }
                 
                 var variables = {};
                 variables.prismicDocument = doc;
                 variables.prismicDocument.parentDocument = parentFolder;
-                variables.backLink = getRelatedLink(doc.getText('page.title'), -1);
-                variables.nextLink = getRelatedLink(doc.getText('page.title'), 1);
+                variables.backLink = getRelatedLink(path, -1);
+                variables.nextLink = getRelatedLink(path, 1);
                 var rendered = false;
                 rendered = tpl(variables);
                 if(parentFolder === 'src/') {

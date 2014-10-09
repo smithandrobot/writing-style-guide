@@ -35,10 +35,18 @@ module.exports = {
 
         return pages[index];
     },
-    indexOfURL: function(url) {
+    urlForSlug: function(url) {
         for (var i = pages.length - 1; i >= 0; i--) {
             if (pages[i].url.indexOf(url) > -1) {
                 return pages[i].url;
+            }
+        }
+        return false;
+    },
+    indexOfURL: function(url) {
+        for (var i = pages.length - 1; i >= 0; i--) {
+            if (pages[i].url.indexOf(url) > -1) {
+                return i;
             }
         }
         return false;
