@@ -16,6 +16,7 @@ var server = express();
 var reload = lr();
 var uglify = require('gulp-uglify');
 var stylus = require('gulp-stylus');
+var sitemap = require('gulp-sitemap');
 
 var paths = {
   styles: './src/css/*.css',
@@ -29,7 +30,7 @@ port = process.env.PORT || 8000;
 
 console.log('Running in env: '+env+'\n server on port: '+port);
 
-gulp.task('default', ['imgs','stylus', 'css', 'js'], function() {
+gulp.task('build', ['imgs','stylus', 'css', 'js'], function() {
   var scriptsRe = /<\!--.*?Scripts([^*]+)End Scripts.*?>/g;
   return gulp.src([paths.html, '!./src/_layouts/**', '!./src/_partials/**'], {read:true})
   .pipe(docObj.get())
@@ -40,7 +41,12 @@ gulp.task('default', ['imgs','stylus', 'css', 'js'], function() {
   .pipe(prettify({indent_size: 2, indent_inner_html: true}))
   .pipe(gulp.dest('./static/'))
   .pipe(gulpIf(env==='development',livereload(reload)))
+})
 
+gulp.task('default', ['build'], function() {
+  return gulp.src('static/**/*.html')
+         .pipe(sitemap({siteUrl:'http://style.thoughtworks.com'}))
+         .pipe(gulp.dest('./static'))
 })
 
 gulp.task('imgs', function() {
@@ -101,4 +107,3 @@ gulp.task('clean', function() {
 gulp.task('heroku:production', ['default'], function() {
 
 })
-

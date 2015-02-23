@@ -1,2 +1,5 @@
-writing-style-guide
+Writing Style Guide
 ===================
+Install
+Test
+Deploy

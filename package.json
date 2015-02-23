@@ -35,8 +35,9 @@
     "node": "0.10.x"
   },
   "devDependencies": {
-    "mocha": "~1.21.4",
     "gulp-mocha": "~1.1.0",
-    "link-checker": "0.0.2"
+    "gulp-sitemap": "^2.0.1",
+    "link-checker": "0.0.2",
+    "mocha": "~1.21.4"
   }
 }
