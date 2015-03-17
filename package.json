@@ -1,6 +1,6 @@
 {
   "name": "writing-style-guide",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Writing Style Guide",
   "main": "index.js",
   "scripts": {
