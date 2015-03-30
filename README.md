@@ -6,6 +6,11 @@ Install
 ---
 ```npm install```
 
+Run Site Locally
+---
+```gulp serve```
+Go to http://localhost:8282
+
 Test
 ---
 * Run all tests: ```npm test``` or ```gulp test```
@@ -15,10 +20,12 @@ Test
 Deploy
 ---
 * Staging: ```gulp && gulp clean-generated && gulp deploy:staging```
-* Production: ```gulp && gulp sitemap && gulp deploy:production```
+* Production: ```gulp && gulp clean-generated && gulp sitemap && gulp deploy:production```
 
-Snap
+Pipeline (Snap)
 ---
-Webhook: ```https://grommett:C6u3HihuhP5g2yV7Gs0v8I4LqpM77ZLMK9km2mHymfQ@api.snap-ci.com/project/smithandrobot/writing-style-guide/branch/master/trigger```
+https://snap-ci.com/smithandrobot/writing-style-guide/branch/master
 
+Prismic Repository
+---
 Prismic.io Repo: https://twwritingguide.prismic.io
