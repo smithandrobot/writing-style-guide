@@ -1,5 +1,7 @@
 Writing Style Guide
 ===================
+[![Build Status](https://snap-ci.com/HXkaRbUcb96D68GZ_dk45YpvZpBGodxI8aSu1Lt9IDc/build_image)](https://snap-ci.com/smithandrobot/writing-style-guide/branch/master) 
+
 Install 
 ---
 ```npm install```
