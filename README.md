@@ -1,6 +1,7 @@
 Writing Style Guide
 ===================
 Install 
+---
 ```npm install```
 
 Test

@@ -1,8 +1,8 @@
 .DS_Store
 node_modules
-.publish-production
-.publish-staging
-generated
+
 
 # Build Files
+.publish-production
+.publish-staging
 generated
