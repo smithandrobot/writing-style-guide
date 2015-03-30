@@ -131,11 +131,15 @@ gulp.task('sitemap', ['clean-generated'], function() {
  Deploy site to staging environment on Heroku. 
  Creates a .publish-staging dir in root of project
 */
-gulp.task('deploy:staging', ['heroku-config', 'test'], function(callback) {
+gulp.task('deploy:staging', ['heroku-config'], function(callback) {
   ghPages.publish(path.join(__dirname, 'generated'), {
     branch: 'master',
     repo: 'https://git.heroku.com/staging-tw-writing-guide.git',
-    clone: './.publish-staging'
+    clone: './.publish-staging',
+    user: {
+      name: 'grommett',
+      email: 'david@smithandrobot.com'
+    }
   }, callback);
 });
 
@@ -143,7 +147,7 @@ gulp.task('deploy:staging', ['heroku-config', 'test'], function(callback) {
  Deploy site to to production environment on Heroku. 
  Creates a .publish-production dir in root of project
 */
-gulp.task('deploy:production', ['heroku-config', 'test'], function(callback) {
+gulp.task('deploy:production', ['heroku-config'], function(callback) {
   ghPages.publish(path.join(__dirname, 'generated'), {
     clone: './.publish-production',
     branch: 'master',
