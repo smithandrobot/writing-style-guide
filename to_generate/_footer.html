@@ -1,0 +1,29 @@
+<div class="grid-wrapper style-guide-footer">
+  <div class="grid--center">
+    <div class="grid__cell unit-2-3--desk unit-2-3--lap unit-3-3--palm">
+      [% if(bottomNav.backLink !== false){ %]
+        <div class="style-guide-footer__link--left">
+          <a href="[%- bottomNav.backLink.path %]">
+            <img src="/img/arrow-left.png" alt="">
+            <div>
+              <span class="style-guide-footer__link__direction">Back</span><br>
+              <span class="title">[%- bottomNav.backLink.title %]</span>
+            </div>
+          </a>
+        </div>
+      [% } %]
+
+      [% if(bottomNav.nextLink !== false){ %]
+        <div class="style-guide-footer__link--right">
+          <a href="[%- bottomNav.nextLink.path %]">
+            <div>
+              <span class="style-guide-footer__link__direction">Next</span><br>
+              <span class="title">[%- bottomNav.nextLink.title %]</span>
+            </div>
+            <img src="/img/arrow-right.png" alt="">
+          </a>
+        </div>
+      [% } %]
+    </div>
+  </div>
+</div>

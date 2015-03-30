@@ -1,0 +1,19 @@
+{
+  "name": "writing-style-guide-staging-heroku-app",
+  "version": "0.1.0",
+  "description": "Writing style guide staging environment.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smithandrobot/style-guide-test1/tree/staging"
+  },
+  "author": "Smith & Robot",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "~1.1.0",
+    "express": "~4.9.0"
+  }
+}

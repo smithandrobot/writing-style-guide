@@ -1,0 +1,33 @@
+<!doctype html>
+<script type="text/prismic-query" data-binding="pages" data-eager="true">
+  [
+    [:d = at(my.page.path, "$path")]
+  ]
+</script>
+[% doc = pages.results[0] %]
+[% bottomNav = helpers.getBottomNav(doc) %]
+<html>
+  <head>
+    <meta name="doc-id" content="[% ref %]">
+    <meta name="prismic-routing-param" content="path">
+    <meta name="prismic-routing-pattern" content="$path">
+    [%- partial('/head.html') %]
+  </head>
+  <body>
+    [%- partial('/analytics.html') %]
+    [%- partial('/header.html') %]
+    <div class="grid-wrapper">
+      <div class="grid--center">
+        <div class="grid__cell unit-2-3--desk unit-2-3--lap unit-3-3--palm prismic-content">
+          <h2>[%- doc.getText("page.title") %]</h2>
+          [%- helpers.getHTML(doc) %]
+        </div>
+      </div>
+    </div>
+    [%- partial('/footer.html') %]
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Scripts -->
+    <script src="/js/all.js"></script>
+    <!-- End Scripts -->
+  </body>
+</html>

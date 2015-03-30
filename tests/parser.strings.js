@@ -36,8 +36,8 @@ var renderedTableStr = ''+
 '</tbody>\n'+
 '</table>';
 
-var rawBlockquote = '<pre>blockquote&gt;This is a quote.</pre>';
-var renderedBlockquote = '<blockquote>This is a quote.</blockquote>';
+var rawBlockquote = '<p>Test stuff.<pre>blockquote&gt;This is a quote.</pre></p>';
+var renderedBlockquote = '<p>Test stuff.<blockquote>This is a quote.</blockquote></p>';
 
 module.exports = {
 	rawTable: function() {

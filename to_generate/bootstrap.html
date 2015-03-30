@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html>
+  <head>
+<!-- 
+  This file is needed to generate links to all the published files
+  and is not generated on the site.
+  If baked.js does not see a link to a file (prismic document) using 
+  'pathTo' it won't generate it.
+  Here we just generate the links so baked.js see's that 
+  the files need to be generated.
+  This file is removed after site generation.
+  TODO: Remove this file after site generation.
+ -->
+<script type="text/prismic-query" data-binding="pages" data-eager="true">
+  [[:d = any(document.type, ["page"])]]
+</script>
+[% helpers.cacheDocs(pages.results) %]
+[% pages = potato.wrapDocuments(pages.results) %]
+  </head>
+  <body>
+    <ul>[% _.each(pages, function(page) { %]
+      [% if(page.getPath) {%]<li>
+        <a href="[%= pathTo('page', { path: page.getPath() }) %]"></a>
+      </li>[% } %][% }) %]
+    </ul>
+  </body>
+</html>

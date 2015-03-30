@@ -6,8 +6,8 @@ var port = process.env.PORT || 8000;
 
 app.use(cacheHeader())
 app.use(compression());
-console.log('Serving from : '+__dirname + '/static')
-app.use(express.static(__dirname + '/static'));
+console.log('Serving from : '+__dirname + '/')
+app.use(express.static(__dirname + '/'));
 console.log('Running on port: '+port)
 app.listen(port);
 
