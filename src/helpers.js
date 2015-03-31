@@ -63,7 +63,9 @@ module.exports = {
   },
 
   getBottomNav: function(doc) {
-    return {nextLink: getNextLink(doc), backLink: getBackLink(doc)} ;
+    var obj = {nextLink: getNextLink(doc), backLink: getBackLink(doc)};
+    //console.log('{title: "'+doc.getText('page.title')+'", ')
+    return obj;
   },
 
   cacheDocs: function(prisimicDocs) {

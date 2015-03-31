@@ -10,7 +10,6 @@
   Here we just generate the links so baked.js see's that 
   the files need to be generated.
   This file is removed after site generation.
-  TODO: Remove this file after site generation.
  -->
 <script type="text/prismic-query" data-binding="pages" data-eager="true">
   [[:d = any(document.type, ["page"])]]
@@ -22,7 +21,9 @@
     <ul>[% _.each(pages, function(page) { %]
       [% if(page.getPath) {%]<li>
         <a href="[%= pathTo('page', { path: page.getPath() }) %]"></a>
-      </li>[% } %][% }) %]
+      </li>
+      [% } %]
+      [% }) %]
     </ul>
   </body>
 </html>

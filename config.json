@@ -1,5 +1,5 @@
 {
-  "loggerLevel": "debug",
+  "loggerLevel": "none",
   "api": "https://twwritingguide.prismic.io/api",
   "urlBase": "http://localhost:8000"
 }
